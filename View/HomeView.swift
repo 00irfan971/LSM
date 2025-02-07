@@ -24,13 +24,31 @@ struct HomeView: View {
                     
                     VStack(){
                         HStack{
-                            Rectangle().frame(width:64,height: 44).cornerRadius(25).opacity(0.7)
+                            ZStack{
+                                Rectangle().frame(width:64,height: 44).cornerRadius(25).foregroundColor(.black).opacity(0.7)
+                                HStack{
+                                    Text("2").foregroundStyle(Color.white)
+                                    Image("tg1").resizable().frame(width:28,height:28)
+                                }
+                            }
                             
-                            Rectangle().frame(width:103,height:44).cornerRadius(25).opacity(0.7)
+                            ZStack{
+                                Rectangle().frame(width:103,height:44).cornerRadius(25).foregroundColor(.black).opacity(0.7)
+                                
+                                HStack{
+                                    Text("Rank 5").foregroundStyle(Color.white)
+                                    Image("tg2").resizable().frame(width:28,height:28)
+                                }
+                            }
                             
                             Spacer()
                             
-                            Circle().frame(width:44).opacity(0.7)
+                            ZStack{
+                                Circle().frame(width:44).foregroundColor(.black).opacity(0.7)
+                                
+                                Image("tg3").resizable().frame(width:28,height:28)
+                                
+                            }
                         }.padding([.trailing,.leading],36)
                         
                         Spacer()
@@ -41,13 +59,11 @@ struct HomeView: View {
                             Spacer()
                         }.padding(.leading,40)
                         
-                    }.frame(height: 190).border(Color.black)
+                    }.frame(height: 190)
                     
                     ScrollView{
                         
                         //First Element in body
-                        
-                    
                         ZStack{
                             Rectangle().frame(width:361,height:160).cornerRadius(20).foregroundColor(Color("Color2")).overlay(
                                 RoundedRectangle(cornerRadius: 20.0).stroke(Color("Color3"), lineWidth: 2)).frame(width: 380)
@@ -191,7 +207,7 @@ struct HomeView: View {
                         }.padding(.leading,20).padding([.top,.bottom],10)
                         
                         ZStack{
-                            Image("Home").resizable().frame(width:360,height:360).cornerRadius(14).overlay(
+                            Image("Featured1").resizable().frame(width:360,height:360).cornerRadius(14).overlay(
                                 RoundedRectangle(cornerRadius: 14.0).stroke(Color("Color2"), lineWidth: 3)).frame(width: 360)
                             
                             VStack{
@@ -222,18 +238,20 @@ struct HomeView: View {
                                 }.padding([.trailing,.leading],36)
                                 
                                 
-                                //Footer
-                                
-                                HStack{
-                                    Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
-                                    Image("Flag").resizable().frame(width:16,height:16)
-                                }.frame(width:360,alignment: .leading)
-                                
-                                Text("Clear Mind\nBetter Performance").frame(width:360,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
+                               
                                 
                                 
                             }.frame(height: 320)
-                        }
+                        }.padding(.bottom,20)
+                        
+                        //Footer
+                        
+                        HStack{
+                            Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
+                            Image("Flag").resizable().frame(width:16,height:16)
+                        }.frame(width:360,alignment: .leading)
+                        
+                        Text("Clear Mind\nBetter Performance").frame(width:360,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
 
                     }.frame(width:380)
                     
