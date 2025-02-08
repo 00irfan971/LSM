@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @State var Selected:Int
     var body: some View {
         ZStack{
             Color("Color").ignoresSafeArea()
@@ -34,7 +36,7 @@ struct ProfileView: View {
                     Image(systemName: "gear").resizable().frame(width:26,height:26).foregroundStyle(Color.white)
                 }.padding([.trailing,.leading],20)
                 
-                
+                //Streak
                 
                 HStack{
                     
@@ -73,8 +75,22 @@ struct ProfileView: View {
                     
                 }
                 
-                ScrollView{
+                HStack(spacing:0){
+                    VStack{
+                        Text("My Library").foregroundStyle(.white)
+                        
+                        Rectangle().frame(width:200,height:1).foregroundStyle(.white)
+                    }
                     
+                    VStack{
+                        Text("Insights").foregroundStyle(.white)
+                        
+                        Rectangle().frame(width:200,height:1).foregroundStyle(.white)
+                    }.foregroundStyle(.gray)
+                }.padding(.top,10)
+                
+                ScrollView{
+                    //Recently Played
                     HStack{
                         Text("Recently Played").foregroundStyle(.white).font(.system(size: 22,weight:.semibold))
                         
@@ -96,42 +112,38 @@ struct ProfileView: View {
                             RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
 
                         }.padding(.leading,20).padding([.bottom],20)
-                        
-                        VStack{
-                            
-                            Profile1View(txt: "My Favorite", img: "Prof5")
-                            
-                            Profile1View(txt: "Downloads", img: "Prof2")
-                            
-                            Profile1View(txt: "My Playlists", img: "Prof3")
-                            
-                            Profile1View(txt: "My Journal Entries", img: "Prof4")
-                            
-                            
-                        }
-                        
-                        HStack{
-                            Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
-                            Image("Flag").resizable().frame(width:16,height:16)
-                        }.frame(width:460,alignment: .leading)
-                        
-                        Text("Clear MindBetter Performance").frame(width:460,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
-
-                    }
-
-
-                    
+ 
                 }
+                    
+                    //Menu
+                    VStack{
+                        
+                        Profile1View(txt: "My Favorite", img: "Prof5")
+                        
+                        Profile1View(txt: "Downloads", img: "Prof2")
+                        
+                        Profile1View(txt: "My Playlists", img: "Prof3")
+                        
+                        Profile1View(txt: "My Journal Entries", img: "Prof4")
+                    }
+                    
+                    HStack{
+                        Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
+                        Image("Flag").resizable().frame(width:16,height:16)
+                    }.frame(width:340,alignment: .leading)
+                    
+                    Text("Clear Mind\nBetter Performance").frame(width:340,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
+
+                }
+
                 
-                                
-                Spacer()
             }
         }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(Selected: 0)
 }
 
 struct Profile1View: View {
@@ -147,9 +159,9 @@ struct Profile1View: View {
             Text(txt).foregroundStyle(.white).font(.system(size: 16))
             Spacer()
             
-            Image("arrow1").padding(.trailing,120)
+            Image("arrow1")
             
             
-        }.padding([.leading,.trailing],20)
+        }.padding([.trailing,.leading],20)
     }
 }

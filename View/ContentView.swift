@@ -25,7 +25,7 @@ struct ContentView: View {
                         Text("Explore")
                     }
                 
-                ProfileView()
+                ProfileView(Selected: 0)
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("You")
