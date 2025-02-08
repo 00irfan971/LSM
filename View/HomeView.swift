@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var More:Bool=false
+    
+    @State var Sheet:Bool=false
+    
+    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
 
             
@@ -100,22 +106,59 @@ struct HomeView: View {
                             
                         }.padding(.leading,20).padding([.top,.bottom],10)
                         
-                        HStack{
-                            ExploreView(img: "Meditation", txt: "Meditation")
-                            
-                            ExploreView(img: "Workout", txt: "Workout")
-                            
-                            
-                            ExploreView(img: "Moon", txt: "Sleep")
-                            
-                           
-   
-                            ZStack{
-                                Rectangle().foregroundColor(Color("Color2")).frame(width:82,height:88).cornerRadius(10)
+                        VStack{
+                            LazyVGrid(columns: gridItems) {
                                 
-                                VStack(spacing:20){
-                                    Image("Vector").resizable().foregroundStyle(Color.white).frame(width:30,height:12)
-                                    Text("More").foregroundStyle(Color.white).font(.system(size: 14,weight: .semibold))
+                                ExploreView(img: "Meditation", txt: "Meditation")
+                                
+                                ExploreView(img: "Workout", txt: "Workout")
+                                
+
+                                ExploreView(img: "Moon", txt: "Sleep")
+                                
+                               
+                                Button(action:{
+                                    More.toggle()
+                                }){
+                                    ZStack{
+                                        Rectangle().foregroundColor(Color("Color2")).frame(width:82,height:88).cornerRadius(10)
+                                        
+                                        VStack(spacing:10){
+                                            Image(More ? "Vector2" : "Vector").resizable().foregroundStyle(Color.white).frame(width:30,height:18)
+                                            Text("More").foregroundStyle(Color.white).font(.system(size: 14,weight: .semibold))
+                                        }
+                                    }
+                                }
+                                
+                                if More == true{
+                                    ExploreView(img: "Mantra", txt: "Mantra")
+                                    
+                                    ExploreView(img: "Events", txt: "Events")
+                                    
+
+                                    ExploreView(img: "Courses", txt: "Courses")
+                                    
+                                    ExploreView(img: "Community", txt: "Community")
+                                    
+                                    ExploreView(img: "Timer", txt: "Timer")
+                                    
+
+                                    ExploreView(img: "Affirmation", txt: "Affirmation")
+                                    
+                                    ExploreView(img: "Music", txt: "Music")
+                                    
+                                    ExploreView(img: "Journal", txt: "Journal")
+
+                                }
+                                
+                            }.frame(width:360)
+                            
+                            if More==true{
+                                
+                                Button(action:{
+                                    Sheet=true
+                                }){
+                                    Text("Edit Shortcuts").foregroundStyle(Color("Color4")).font(.system(size: 16,weight:.semibold))
                                 }
                             }
                         }
@@ -266,6 +309,10 @@ struct HomeView: View {
                     Spacer()
                     
             }
+        }.sheet(isPresented: $Sheet) {
+            ExploreSheetView(sheet: $Sheet)
+                .presentationDetents([.fraction(0.65)]) // Makes the sheet half-screen
+                .presentationDragIndicator(.visible) // Shows a grabber at the top
         }
         
     }

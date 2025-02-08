@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State var Selected:Bool=true
+    @State var Selected:Bool=false
     var body: some View {
         ZStack{
             Color("Color").ignoresSafeArea()
@@ -39,8 +39,6 @@ struct ProfileView: View {
                 //Streak
                 
                 HStack{
-                    
-                    
                     ZStack{
                         Rectangle().frame(width:180,height:60).cornerRadius(15).foregroundColor(Color("Color")).overlay(
                             RoundedRectangle(cornerRadius: 15.0).stroke(Color.gray.opacity(0.4), lineWidth: 1)).frame(width: 180)
@@ -102,8 +100,6 @@ struct ProfileView: View {
                             }
                         
                     }.foregroundStyle(.gray)
-                    
-                    
                 }.padding(.top,10)
                 
                 
@@ -156,6 +152,8 @@ struct ProfileView: View {
 
                     }else{
                         
+
+                        
                         ZStack{
                             
                             Image("Rect").resizable().frame(width:360)
@@ -191,6 +189,112 @@ struct ProfileView: View {
                             
                             Rectangle().frame(width:360,height:360).cornerRadius(20).foregroundStyle(Color("Color2"))
                         }
+                        
+                        
+                        //MY Statistics
+                        HStack{
+                            Text("My Statistics").foregroundStyle(.white).font(.system(size: 22,weight:.semibold))
+                            
+                            Spacer()
+                            
+                        }.padding(.leading,20).padding([.top,.bottom],10)
+                        
+                        
+                        HStack{
+                            
+                            ZStack{
+                                Rectangle().frame(width:120,height:199).cornerRadius(20).foregroundStyle(Color("Color8")).overlay(
+                                    RoundedRectangle(cornerRadius: 20.0).stroke(Color.gray.opacity(0.4), lineWidth: 2)).frame(width: 120)
+                                
+                                VStack{
+                                    Text("Meditation").font(.system(size: 20,weight: .semibold)).foregroundStyle(Color.green)
+                                    
+                                    Image("Imagex1").resizable().frame(width:75,height:75)
+                                    
+                                    Rectangle().frame(width:120,height:2).foregroundColor(.gray.opacity(0.4))
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("200").foregroundStyle(.green).bold()
+                                            Text("Sessions").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                        
+                                        VStack{
+                                            Text("700").foregroundStyle(.green).bold()
+                                        
+                                            Text("XP").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                            ZStack{
+                                Rectangle().frame(width:120,height:199).cornerRadius(20).foregroundStyle(Color("Color8")).overlay(
+                                    RoundedRectangle(cornerRadius: 20.0).stroke(Color.gray.opacity(0.4), lineWidth: 2)).frame(width: 120)
+                                
+                                VStack{
+                                    Text("Workout").font(.system(size: 20,weight: .semibold)).foregroundStyle(Color.yellow)
+                                    
+                                    ZStack{
+                                        
+                                        Image("Imagex2.1").resizable().frame(width:75,height:75)
+                                        
+                                        Image("Imagex2.2").resizable().frame(width:75,height:75)
+                                    }
+                                    
+                                    Rectangle().frame(width:120,height:2).foregroundColor(.gray.opacity(0.4))
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("200").foregroundStyle(.yellow).bold()
+                                            Text("Sessions").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                        
+                                        VStack{
+                                            Text("700").foregroundStyle(.yellow).bold()
+                                        
+                                            Text("XP").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                            ZStack{
+                                Rectangle().frame(width:120,height:199).cornerRadius(20).foregroundStyle(Color("Color8")).overlay(
+                                    RoundedRectangle(cornerRadius: 20.0).stroke(Color.gray.opacity(0.4), lineWidth: 2)).frame(width: 120)
+                                
+                                VStack{
+                                    Text("Journal").font(.system(size: 20,weight: .semibold)).foregroundStyle(Color.pink)
+                                    
+                                    Image("Imagex3").resizable().frame(width:75,height:75)
+                                    
+                                    Rectangle().frame(width:120,height:2).foregroundColor(.gray.opacity(0.4))
+                                    
+                                    HStack{
+                                        VStack{
+                                            Text("200").foregroundStyle(.pink).bold()
+                                            Text("Sessions").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                        
+                                        VStack{
+                                            Text("700").foregroundStyle(.pink).bold()
+                                        
+                                            Text("XP").foregroundStyle(.white).font(.system(size: 12))
+                                        }
+                                    }
+                                }
+                            }
+                        }.padding(.bottom,40)
+                        
+                        HStack{
+                            Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
+                            Image("Flag").resizable().frame(width:16,height:16)
+                        }.frame(width:340,alignment: .leading)
+                        
+                        Text("Clear Mind\nBetter Performance").frame(width:340,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
+                        
                     }
                 }
 
