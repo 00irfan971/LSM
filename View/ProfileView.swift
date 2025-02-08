@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State var Selected:Int
+    @State var Selected:Bool=true
     var body: some View {
         ZStack{
             Color("Color").ignoresSafeArea()
@@ -76,64 +76,122 @@ struct ProfileView: View {
                 }
                 
                 HStack(spacing:0){
-                    VStack{
-                        Text("My Library").foregroundStyle(.white)
+                        Button(action: {
+                            Selected = false
+                        }) {
+                            VStack {
+                                Text("My Library")
+                                    .foregroundStyle(Selected ? .gray : .white)
+                                
+                                Rectangle()
+                                    .frame(width: 200, height: 1)
+                                    .foregroundStyle(Selected ? .gray : .white)
+                            }
+                        }
                         
-                        Rectangle().frame(width:200,height:1).foregroundStyle(.white)
-                    }
-                    
-                    VStack{
-                        Text("Insights").foregroundStyle(.white)
+                        Button(action: {
+                            Selected = true
+                        }) {
+                            VStack {
+                                Text("Insights")
+                                    .foregroundStyle(Selected ? .white : .gray)
+                                
+                                Rectangle()
+                                    .frame(width: 200, height: 1)
+                                    .foregroundStyle(Selected ? .white : .gray)
+                            }
                         
-                        Rectangle().frame(width:200,height:1).foregroundStyle(.white)
                     }.foregroundStyle(.gray)
+                    
+                    
                 }.padding(.top,10)
                 
+                
                 ScrollView{
+                    
                     //Recently Played
-                    HStack{
-                        Text("Recently Played").foregroundStyle(.white).font(.system(size: 22,weight:.semibold))
-                        
-                        Spacer()
-                        
-                        Text("See All").foregroundStyle(Color.gray).font(.system(size: 12, weight: .semibold, design: .rounded))
-                        
-                    }.padding([.leading,.trailing],20).padding([.top,.bottom],10)
-                    
-                    ScrollView(.horizontal){
-                        
-                        HStack(spacing:10){
+                    if Selected == false{
+                        HStack{
+                            Text("Recently Played").foregroundStyle(.white).font(.system(size: 22,weight:.semibold))
                             
-                            RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
+                            Spacer()
                             
-                            RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
+                            Text("See All").foregroundStyle(Color.gray).font(.system(size: 12, weight: .semibold, design: .rounded))
+                            
+                        }.padding([.leading,.trailing],20).padding([.top,.bottom],10)
+                        
+                        ScrollView(.horizontal){
+                            
+                            HStack(spacing:10){
+                                
+                                RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
+                                
+                                RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
 
-                            
-                            RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
+                                
+                                RecView(Item: "Meditation", Name: "Workplace Anxiety", Author: "Avi Arya",img:"RecImage1")
 
-                        }.padding(.leading,20).padding([.bottom],20)
- 
-                }
-                    
-                    //Menu
-                    VStack{
-                        
-                        Profile1View(txt: "My Favorite", img: "Prof5")
-                        
-                        Profile1View(txt: "Downloads", img: "Prof2")
-                        
-                        Profile1View(txt: "My Playlists", img: "Prof3")
-                        
-                        Profile1View(txt: "My Journal Entries", img: "Prof4")
+                            }.padding(.leading,20).padding([.bottom],20)
+     
                     }
-                    
-                    HStack{
-                        Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
-                        Image("Flag").resizable().frame(width:16,height:16)
-                    }.frame(width:340,alignment: .leading)
-                    
-                    Text("Clear Mind\nBetter Performance").frame(width:340,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
+                        
+                        //Menu
+                        VStack{
+                            
+                            Profile1View(txt: "My Favorite", img: "Prof5")
+                            
+                            Profile1View(txt: "Downloads", img: "Prof2")
+                            
+                            Profile1View(txt: "My Playlists", img: "Prof3")
+                            
+                            Profile1View(txt: "My Journal Entries", img: "Prof4")
+                        }.padding(.bottom)
+                        
+                        HStack{
+                            Text("Made Mindfully in ").foregroundStyle(Color("Color7")).font(.system(size: 14,weight: .regular))
+                            Image("Flag").resizable().frame(width:16,height:16)
+                        }.frame(width:340,alignment: .leading)
+                        
+                        Text("Clear Mind\nBetter Performance").frame(width:340,alignment: .leading).font(.system(size: 36,weight: .bold)).foregroundStyle(Color("Color7"))
 
+                    }else{
+                        
+                        ZStack{
+                            
+                            Image("Rect").resizable().frame(width:360)
+                            
+                            HStack{
+                                Image("Triangle")
+                                Text("30%").font(.system(size: 32,weight:.semibold)).foregroundStyle(Color("Color5"))
+                                
+                                Rectangle().frame(width:3,height:60).foregroundStyle(Color("Color5"))
+                                
+                                Text("Your Mindfulness Practice \nincreased by ")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 16, weight: .semibold))
+                                +
+                                Text("30%")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 22, weight: .bold)) // Larger and bolder
+                                +
+                                Text(" this week")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 16, weight: .semibold))
+
+                            }
+                        }
+                        
+                        ZStack{
+                            
+                            Rectangle().frame(width:360,height:360).cornerRadius(20).foregroundStyle(Color("Color2"))
+                        }.padding(.bottom,20)
+                        
+                        
+                        ZStack{
+                            
+                            Rectangle().frame(width:360,height:360).cornerRadius(20).foregroundStyle(Color("Color2"))
+                        }
+                    }
                 }
 
                 
@@ -143,7 +201,7 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(Selected: 0)
+    ProfileView()
 }
 
 struct Profile1View: View {
