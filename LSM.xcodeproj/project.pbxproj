@@ -16,7 +16,6 @@
 		52549D862D54B160007D7D85 /* LSMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52549D852D54B160007D7D85 /* LSMUITests.swift */; };
 		52549D882D54B160007D7D85 /* LSMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52549D872D54B160007D7D85 /* LSMUITestsLaunchTests.swift */; };
 		52549D982D54B4B6007D7D85 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52549D972D54B4B6007D7D85 /* HomeView.swift */; };
-		52549D9A2D54E752007D7D85 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52549D992D54E752007D7D85 /* test.swift */; };
 		528DB68B2D5678210012A8F1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DB68A2D5678210012A8F1 /* ProfileView.swift */; };
 		528DB6912D5778080012A8F1 /* ExploreSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DB6902D5778080012A8F1 /* ExploreSheetView.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		52549D852D54B160007D7D85 /* LSMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMUITests.swift; sourceTree = "<group>"; };
 		52549D872D54B160007D7D85 /* LSMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52549D972D54B4B6007D7D85 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		52549D992D54E752007D7D85 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		528DB68A2D5678210012A8F1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		528DB6902D5778080012A8F1 /* ExploreSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,7 +158,6 @@
 				52549D972D54B4B6007D7D85 /* HomeView.swift */,
 				528DB6902D5778080012A8F1 /* ExploreSheetView.swift */,
 				528DB68A2D5678210012A8F1 /* ProfileView.swift */,
-				52549D992D54E752007D7D85 /* test.swift */,
 				52549D6A2D54B15D007D7D85 /* ContentView.swift */,
 			);
 			path = View;
@@ -299,7 +296,6 @@
 				52549D6B2D54B15D007D7D85 /* ContentView.swift in Sources */,
 				52549D982D54B4B6007D7D85 /* HomeView.swift in Sources */,
 				52549D6D2D54B15D007D7D85 /* Item.swift in Sources */,
-				52549D9A2D54E752007D7D85 /* test.swift in Sources */,
 				528DB6912D5778080012A8F1 /* ExploreSheetView.swift in Sources */,
 				528DB68B2D5678210012A8F1 /* ProfileView.swift in Sources */,
 				52549D692D54B15D007D7D85 /* LSMApp.swift in Sources */,
